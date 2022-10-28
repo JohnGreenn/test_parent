@@ -2,12 +2,9 @@ package com.ge.test_parent.controller;
 
 
 import com.ge.test_parent.entity.User;
-import com.ge.test_parent.mapper.UserMapper;
+import com.ge.test_parent.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,8 +20,11 @@ import java.util.List;
 @RequestMapping("/test_parent/user")
 public class UserController {
 
+    //@Autowired
+    //private UserMapper userMapper;
+
     @Autowired
-    private UserMapper userMapper;
+    private UserService service;
 
     @GetMapping
     public String findAll() {
@@ -33,8 +33,14 @@ public class UserController {
 
     @GetMapping("all")
     public List findAll2() {
-        List<User> users = userMapper.selectList(null);
+        List<User> users = service.list(null);
         return users;
+    }
+
+    @PostMapping("add")
+    public boolean addInfo(@RequestBody User user) {
+        boolean save = service.save(user);
+        return save;
     }
 
 }

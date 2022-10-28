@@ -9,6 +9,6 @@ import org.springframework.context.annotation.Configuration;
  * @description:
  **/
 @Configuration
-@MapperScan("com.ge.test_parent")
+@MapperScan("com.ge.test_parent.mapper")
 public class TestConfig {
 }

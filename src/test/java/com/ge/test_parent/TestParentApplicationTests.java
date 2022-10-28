@@ -14,13 +14,13 @@ import java.util.List;
 @SpringBootTest
 class TestParentApplicationTests {
 
-    @Autowired
-    private UserMapper userMapper;
-
-    @Test
-    public void findAll() {
-        List<User> users = userMapper.selectList(null);
-        System.out.println(users);
-    }
+//    @Autowired
+//    private UserMapper userMapper;
+//
+//    @Test
+//    public void findAll() {
+//        List<User> users = userMapper.selectList(null);
+//        System.out.println(users);
+//    }
 
 }
